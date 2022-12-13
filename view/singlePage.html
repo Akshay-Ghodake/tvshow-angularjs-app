@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body ng-app="MyApp" ng-controller="singleController">
+    <div class="container mycontainer mt-3">
+        <div class="row">
+            <div class="col" style="    text-align: -webkit-center;">
+                <div>
+                    <img ng-src="{{img}}" class="d-block imSize" alt="...">
+
+                </div>
+            </div>
+            <div class="col mt-3 mx-5">
+                <h3>{{name}}</h3>
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Premiered </td>
+                        <td>
+                            <p>{{premiered}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Runtime </td>
+                        <td>
+                            <p>{{runtime}} min</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rating </td>
+                        <td>
+                            <p>{{rating || "NA"}} / 10</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Genres </td>
+                        <td>
+                            <p>{{genres | removeHTMLTags}} <span ng-if="genres.length < 1">NA</span></p>
+
+                        </td>
+                    </tr>
+                </table>
+                <p style="text-align: justify;">Summary : {{summary | removeHTMLTags}}</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

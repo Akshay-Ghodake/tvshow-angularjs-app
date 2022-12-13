@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Shows</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styel.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="js/tvscript.js"></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCtrn">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" ng-href="#!/">MY <span class="bi bi-tv-fill"></span> TV </span></a>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" ng-href="#!allShows">Genres </a>
+                </li>
+            </ul>
+            <div class="flex">
+                <input type="text" class="form-control sclss" placeholder="Enter Tv Show name" ng-model="s"
+                    ng-change="get_tvshow()" />
+            </div>
+        </div>
+    </nav>
+    <!-- search result -->
+    <div class="container myClss" ng-if="s_data">
+        <h3>Search Results For {{s}}</h3>
+        <div class="flex-container">
+            <div ng-repeat="show in s_data | limitTo: 7">
+                <a ng-href="#!singlePage/{{show.show.id}}">
+                    <div class="card newcard">
+                        <img ng-src="{{show.show.image.medium}}">
+                        <div class="card-body ">
+                            <h5 class="card-title"> {{show.show.name}}</h5>
+                            <p class="card-text">Premiered :{{show.show.premiered}}</p>
+                            <p class="card-text"><span class="bi bi-star-fill"></span> {{show.show.rating.average}}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end search -->
+    <div ng-view></div>
+</body>
+
+</html>

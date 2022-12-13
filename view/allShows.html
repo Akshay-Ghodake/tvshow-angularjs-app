@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body ng-app="MyApp">
+    <div class="container mt-5">
+        <h3>Drama Genre</h3>
+        <div class="flex-container">
+            <div ng-repeat="show in tvshowdata | filter : 'Drama' : true | limitTo: 10">
+                <a ng-href="#!singlePage/{{show.show.id}}">
+                    <div class="card newcard">
+                        <img ng-src="{{show.show.image.medium}}">
+                        <div class="card-body ">
+                            <h5 class="card-title"> {{show.show.name}}</h5>
+                            <p class="card-text">Premiered :{{show.show.premiered}}</p>
+                            <p class="card-text"><span class="bi bi-star-fill"></span> {{show.show.rating.average}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <h3>Sports Genre</h3>
+        <div class="flex-container">
+            <div ng-repeat="show in tvshowdata | filter : 'Sports' : true | limitTo: 10">
+                <a ng-href="#!singlePage/{{show.show.id}}">
+                    <div class="card newcard">
+                        <img ng-src="{{show.show.image.medium}}">
+                        <div class="card-body ">
+                            <h5 class="card-title"> {{show.show.name}}</h5>
+                            <p class="card-text">Premiered :{{show.show.premiered}}</p>
+                            <p class="card-text"><span class="bi bi-star-fill"></span> {{show.show.rating.average}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
